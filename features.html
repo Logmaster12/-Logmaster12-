@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Features</title>
+    <link rel="stylesheet" href="feature.css">
+    <link rel="icon" type="image/x-icon" href="Image/apple_logo_2-removebg-preview.png">
+</head> 
+<body>
+    <div class="main">
+        <nav>
+            <div class="logo"><img src = "Image/apple_logo_2-removebg-preview.png"></div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product.html">Product</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="information">
+            <div class="overlay"></div>
+            <img src="Image/White-iphone-xr-mobile-phone-on-transparent-bakground-PNG-removebg-preview.png" class="mobile">
+            <div id="circle">
+                <div class="feature camera">
+                    <img src="image/camera.png">
+                    <div><h1>Camera</h1><span>12MP, Wide Angle Lens</span></div>
+                </div>
+                <div class="feature processor">
+                    <img src="Image/processor.png">
+                    <div><h1>Processor</h1><p>A12 Bionic</p></div>
+                </div>
+                <div class="feature display">
+                    <img src="Image/display.png">
+                    <div><h1>Display</h1><p>6.1" IPS LCD display</p></div>
+                </div>
+                <div class="feature battery">
+                    <img src="Image/battery.png">
+                     <div><h1>Battery</h1><p>2942mAh, up to 65 hours*</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <dic class="controls">
+        <img src="Image/arrow.png" id="upBtn">
+        <h3>Features</h3>
+        <img src="Image/arrow.png" id="downBtn">
+    </div>
+    <script>
+        var circle = document.getElementById("circle");
+        var upBtn = document.getElementById("upBtn");
+        var downBtn = document.getElementById("downBtn");
+
+        var rotateValue = circle.style.transform;
+        var rotateSum;
+
+        upBtn.onclick = function() {
+            rotateSum = rotateValue + "rotate(-90deg)";
+            circle.style.transform = rotateSum;
+            rotateValue = rotateSum;
+            }
+            downBtn.onclick = function() {
+            rotateSum = rotateValue + "rotate(90deg)";
+            circle.style.transform = rotateSum;
+            rotateValue = rotateSum;
+            }
+
+        onclick = function() {
+            rotateSum += 90;
+            console.log("DOWN) value: "+ rotateValue+" sum:"+rotateSum);
+            circle.style.transform = "rotate("+rotateSum+"deg)";
+            if(rotateSum == 0){
+                setTimeout(function(){
+                    circle.style = "transition: none";
+                    circle.style.transform = "rotate(360deg)";
+                    rotateSum = 360;
+                    setTimeout(function(){
+                        circle.style = "transition: 1s";
+                     }, 100);  
+                }, 800);
+
+            }
+        }
+
+    </script>
+</body>
+</html>

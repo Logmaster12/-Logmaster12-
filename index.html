@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="image/apple_logo_2-removebg-preview.png">
+    <style>
+
+        .image-section {
+            text-align: center;
+        }
+
+        .image-container {
+            display: inline-block;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        
+        .image-nav {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .image-nav button {
+            background-color: #3366cc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Apple.inc</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>About our company</h2>
+            <p style="text-align: justify;" id="company-description">Apple Inc. is a multinational technology company known for its innovative products and services. Founded in 1976 by Steve Jobs, Steve Wozniak, and Ronald Wayne, the company has a long history of revolutionizing the tech industry. Apple's products include the iPhone, iPad, Mac computers, Apple Watch, and more. With a focus on design, quality, and user experience, Apple has garnered a loyal following of customers around the world. The company's commitment to sustainability and environmental responsibility also sets it apart in the corporate world. Explore the world of Apple and experience cutting-edge technology combined with elegant design.</p>
+        </section>
+
+        <section class="image-section">
+            <div class="image-container">
+                <img src="image1.jpg" alt="Image 1">
+            </div>
+        </section>
+
+        <div class="image-nav">
+            <button id="prevButton">Previous</button>
+            <button id="nextButton">Next</button>
+        </div>
+    </main>
+
+    <script>
+        const images = ["image/apple.jpg", "image/steve jobs.jpg", "image/headquarters.jpg", "image/apple product.png"];
+        const descriptions = [
+            "Apple Inc. is a multinational technology company known for its innovative products and services. Founded in 1976 by Steve Jobs, Steve Wozniak, and Ronald Wayne, the company has a long history of revolutionizing the tech industry. Apple's products include the iPhone, iPad, Mac computers, Apple Watch, and more. With a focus on design, quality, and user experience, Apple has garnered a loyal following of customers around the world. The company's commitment to sustainability and environmental responsibility also sets it apart in the corporate world. Explore the world of Apple and experience cutting-edge technology combined with elegant design.",
+            "Steve Jobs, the co-founder of Apple Inc., was a visionary entrepreneur who played a key role in shaping the future of technology. His innovative ideas and relentless pursuit of excellence led to the creation of groundbreaking products such as the iPhone and MacBook. Jobs' commitment to design and user experience revolutionized the tech industry and left a lasting legacy.",
+            "Apple's headquarters, often referred to as the 'Apple Park' or the 'Spaceship Campus,' is a state-of-the-art architectural marvel. The campus features a circular building with a stunning glass facade, surrounded by beautiful landscapes and green spaces. It serves as the central hub for Apple's operations and reflects the company's dedication to design and innovation.",
+            "Apple's product range, often referred to as 'Innovations Now,' embodies cutting-edge technology and design. From iPhones to MacBooks, iPads to Apple Watches, each device is a symbol of excellence and innovation. These products seamlessly blend into your life, reflecting Apple's dedication to enhancing your digital experience."
+        ];
+
+        let currentIndex = 0;
+
+        const imageContainer = document.querySelector('.image-container');
+        const companyDescription = document.getElementById('company-description');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+
+        function updateImageAndDescription() {
+            imageContainer.innerHTML = `<img src="${images[currentIndex]}" alt="Image ${currentIndex + 1}">`;
+            companyDescription.textContent = descriptions[currentIndex];
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImageAndDescription();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImageAndDescription();
+        });
+
+        
+        updateImageAndDescription();
+    </script>
+</body>
+</html>
